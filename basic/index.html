@@ -6,6 +6,12 @@
 <script type="text/javascript">
 	function kd_ajax(){
 		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function(){
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				var resultDiv = document.getElementById('result_data');
+				resultDiv.innerHTML = xmlhttp.responseText;
+			}
+		};
 		xmlhttp.open('GET', 'ajax_target.php',true);
 		xmlhttp.send();
 	}
@@ -14,5 +20,6 @@
 
 <body>
 	<button onclick="kd_ajax();">Click Me</button>
+    <div id="result_data"></div>
 </body>
 </html>
