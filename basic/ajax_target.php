@@ -16,4 +16,11 @@
 	foreach ($array as $arr){
 		echo $arr.'<br><br>';
 	}
+	
+	// Check condition to see if variables are declared
+	isset($_REQUEST['name'])&&!empty($_REQUEST['name']) ? $first_name = $_REQUEST['name'] : $first_name = 'unknown or empty';
+	isset($_REQUEST['surname'])&&!empty($_REQUEST['surname']) ? $surname = $_REQUEST['surname'] : $surname = 'unknown or empty';
+		
+	echo 'The url has a name of '.$first_name.' and surname of '.$surname;
+	// Value can be retrieved via $_GET or $_REQUEST
 ?>
